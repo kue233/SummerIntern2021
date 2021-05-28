@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>testing</title>
+        <script>
+           function validate(){ 
+               var password=document.getElementById("password").value; // get the input password 
+               var lowerCaseLetter = /[a-z]/g; // it means the lowerCaseLetter only contain 1 or more lowercase letter
+               var upperCaseLetter = /[A-Z]/g; // it means the upperCaseLetter only contain 1 or more uppercase letter
+               var number = /[0-9]/g; // it means the unmber only contain 1 or more number 
+              /* var string;
+               string.match(); // learn the function of match() which is in the js libary
+               string.length; */ 
+            //write your js code after this line
+               var a=[];
+               if (password.match(lowerCaseLetter)==null) {
+                  a[0]=1;     
+                }
+                else {
+                  a[0]=0;
+                }
+               if (password.match(upperCaseLetter)==null) {
+                  a[1]=2;        
+               }
+               else {
+                  a[1]=0;
+                }
+               if (password.match(number)==null) {
+                  a[2]=4;     
+              }
+              else {
+                  a[2]=0;
+                }
+              if (password.length<8) {
+                a[3]=8;
+          
+              }
+              else {
+                  a[3]=0;
+                }
+              switch (a[0]+a[1]+a[2]+a[3])
+              {
+                case 0:
+                alert('Password is valid');
+                break;
+                case 1:
+                alert('Password is invalid because there is no lowercase letter');
+                break;
+                case 2:
+                alert('Password is invalid because there is no uppercase letter');
+                break;
+                case 3:
+                alert('Password is invalid because there is no lowercase letter and uppercase letter'); 
+                break;
+                case 4:
+                alert('Password is invalid because there is no number');
+                break;
+                case 5:
+                alert('Password is invalid because there is no lowercase letter and number');   
+                break;
+                case 6:
+                alert('Password is invalid because there is no uppercase letter and number');
+                break;
+                case 7:
+                alert('Password is invalid because there is no lowercase letter, uppercase letter and number');
+                break;
+                case 8:
+                alert('Password is invalid because it is shorter than 8 characters');
+                break;
+                case 9:
+                alert('Password is invalid because there is no lowercase letter and it is shorter than 8 characters');  
+                break;
+                case 10:
+                alert('Password is invalid because there is no uppercase letter and it is shorter than 8 characters');  
+                break;
+                case 11:
+                alert('Password is invalid because there is no lowercase letter and uppercase letter and it is shorter than 8 characters'); 
+                break;
+                case 12:
+                alert('Password is invalid because there is no number and it is shorter than 8 characters'); 
+                break;
+                case 13:
+                alert('Password is invalid because there is no lowercase leter and number and it is shorter than 8 characters'); 
+                break;
+                case 14:
+                alert('Password is invalid because there is no uppercase leter and number and it is shorter than 8 characters'); 
+                break;
+                case 15:
+                alert('Password is invalid because it is empty'); 
+              }
+            /*
+Hello123
+
+HHHHH123
+hhhhh123
+HHHHHHHh
+Hh1
+
+12345678
+HHHHHHHH
+hhhhhhhh
+H1
+h1
+Hh
+
+????????
+H
+h
+1
+
+“empty”
+            */
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <form>
+              <label for="username">Username: </label><input type="text" id="username" name="username">
+              <label for="password">Password: </label><input type="password" id="password" name="password">
+              <input type="submit" value="Submit" onclick="validate();">
+            </form>
+          </div>
+          <div id="message">
+            <h1>Password must contain:</h1>
+            <p id="lowercase" class="invalid">A lowercase letter</p>
+            <p id="uppercase" class="invalid">A uppercase letter</p>
+            <p id="number" class="invalid">A number </p>
+            <p id="length" class="invalid">Minimum 8 characters</p>
+          </div>
+    </body>
+</html>
