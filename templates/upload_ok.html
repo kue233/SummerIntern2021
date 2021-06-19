@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask上传图片演示</title>
+    <style>
+        body{
+            background_color:#81e8ff;
+            text-align="center";
+
+        }
+        .content {
+            max-width: 500px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>使用Flask上传本地图片并显示示例一</h1>
+    <form action="" enctype='multipart/form-data' method='POST'>
+        <input type="file" name="file" style="margin-top:20px;"/>
+        <br>
+        <i>请输入你当前的心情（开心、超开心、超超开心）：</i>
+        <input type="text" class="txt_input" name="name"  value="超超开心" style="margin-top:10px;"/>
+        <input type="submit" value="上传" class="button-new" style="margin-top:15px;"/>
+    </form>
+    <div class="content">
+        <h1>Your ticker: {{userinput}}！</h1>
+        <img src="{{ url_for('static', filename= filename,_t=val1) }}" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        <img src="C:\Users\kue84\FlaskTest\flaskTest\static\images\123.png" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        <img src="static/images/123.png" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+
+        <img src="https://i.imgur.com/n95jzfa.png" width="400" height="400" alt="你的图片被外星人劫持了～～"/>
+        <br><br>
+        <object data="static/ticker/tickerPic.html" width="1000" height="1000">ticker</object>
+    </div>
+    
+    
+</body>
+</html>
